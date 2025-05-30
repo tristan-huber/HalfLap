@@ -40,7 +40,7 @@
             ],
             "description": "Defines a Replicad code block.",
             "codeVersion": 1,
-            "code": " \n      //Inputs:[shape1, shape2]\n      //This defines the molecules inputs and creates variables with the same names which can be referenced in the code\n      \n      //Takes the address and gets the shape from the library\n\n      let intersect = await Intersect(shape1, shape2)\n      // get z bounds\n      console.log(\"foo\")\n      console.log(intersect)\n      let boundingBox = intersect.geometry[0].boundingBox\n      console.log(boundingBox.depth)\n      console.log(boundingBox.bounds)\n\n      let cutHeight = boundingBox.bounds[0][2] + boundingBox.depth / 2\n      console.log(\"attempting to log replicad\")\n      console.log(boundingBox.depth)\n      console.log(\"succeeded\")\n      console.log(cutHeight)\n\n      // create cube to reduce to half of the intersection\n      let createdRectangle = replicad.drawRectangle(boundingBox.width + 2, boundingBox.height + 2)\n      console.log(\"rectangle\")\n      console.log(createdRectangle)\n      //This is the plane we are going to put our new shape on\n      const yPlane = new Plane().pivot(0, 'Y');\n      //And we extrude the shape to make it 3D\n      let createdShape = createdRectangle.sketchOnPlane(yPlane).extrude(cutHeight + 1)\n      let cube = {\n          geometry: [createdShape], \n          tags: [],\n          color: '#A3CE5B',\n          plane: yPlane,\n          bom: []\n      }\n\n      // do the cutting\n      intersect = intersect.geometry[0].cut(cube.geometry[0])\n\n      // merge the half-intersection with one of our inputs (either?)\n\n      // compose assembly, be careful about ordering\n\n\n      return await Assembly([intersect])//, cube]);\n// choose midpoint\n\n\n      \n\n      \n\n//      return Intersect(shape1, shape2)\n\n\n\n      //This makes a new copy of of the shape (to prevent garbage collection issues),\n      //and moves it in the X direction. Note that this will not work if the input is an assembly\n      /*let movedShape = importedShape.geometry[0].clone().translate([dist,0,0])\n      \n      //Console.log works for debugging to better see what is happening under the hood\n      console.log(\"Shape:\")\n      console.log(importedShape);\n      \n      //Shapes stored in the library have tags, a color, a plane, and a bill of materials like this. We don't modify them here\n      let shape1 = {\n        geometry: [movedShape],\n        tags: importedShape.tags,\n        color: importedShape.color,\n        plane: importedShape.plane,\n        bom: importedShape.bom\n      }\n      \n      //We could at this point return shape1 as a complete shape and it will be automatically written to the library for us\n      //return shape1\n      \n      //We can also create a new shape from scratch\n      let createdRectangle = replicad.drawRectangle(5,7)\n      //This is the plane we are going to put our new shape on\n      const newPlane = new Plane().pivot(0, 'Y');\n      //And we extrude the shape to make it 3D\n      let createdShape = createdRectangle.sketchOnPlane(newPlane).extrude(height)\n      \n      //For our new geometry we need to define the tags, color, plane, etc\n      let shape2 = {\n          geometry: [createdShape], \n          tags: [\"aTag\"],\n          color: '#A3CE5B',\n          plane: newPlane,\n          bom: []\n      }\n      \n      //Then we can return our created shape in just the same way\n      //return shape2\n      \n      //If we want to return both shapes at once, we can create an assembly with them\n      let anAssembly = {\n        geometry: [shape1, shape2], \n        tags: [\"aNewTag\"],\n        color: '#A3CF5B',\n        plane: newPlane,\n        bom: []\n      }\n      \n      //And we can return that in the same way\n      return anAssembly\n      \n      \n          /**\n          To Use the Code Atom, enter your inputs to the input list a.e Inputs:[shape, height]\n          If your input is connected to another atom with a replicad geometry you can access its geometry by looking up its ID in your library. a.e library[Input1].geometry[0] \n          Use any replicad available methods to modify your geometry. Learn more about all of the available methods at \n          https://replicad.xyz/docs/introapp/UserGuide.html \n          Return a replicad object that includes geometry, color, tags and plane. \n      \n      \n          Example Code Atom:\n      \n            Inputs:[shape, x];\n      \n            let finalShape = library[shape].geometry[0].clone.translate[x,0,0]\n      \n            return {geometry: finalShape, color: library[shape].color, plane: library[shape].plane, tags: library[shape].tags }\n      \n            - See more examples at _______ \n      \n      \n          */\n      "
+            "code": " \n      //Inputs:[shape1, shape2]\n      //This defines the molecules inputs and creates variables with the same names which can be referenced in the code\n      \n      //Takes the address and gets the shape from the library\n\n      let intersect = await Intersect(shape1, shape2)\n      // get z bounds\n      console.log(\"foo\")\n      console.log(intersect)\n      let boundingBox = intersect.geometry[0].boundingBox\n      console.log(boundingBox.depth)\n      console.log(boundingBox.bounds)\n\n      let cutHeight = boundingBox.bounds[0][2] + boundingBox.depth / 2\n      console.log(\"attempting to log replicad\")\n      console.log(boundingBox.depth)\n      console.log(\"succeeded\")\n      console.log(cutHeight)\n\n      // create cube to reduce to half of the intersection\n      let createdRectangle = replicad.drawRectangle(boundingBox.width + 2, boundingBox.height + 2)\n      console.log(\"rectangle\")\n      console.log(createdRectangle)\n      //This is the plane we are going to put our new shape on\n      const yPlane = new Plane().pivot(0, 'Y');\n      //And we extrude the shape to make it 3D\n      let createdShape = createdRectangle.sketchOnPlane(yPlane).extrude(cutHeight + 1)\n      let cube = {\n          geometry: [createdShape], \n          tags: [],\n          color: '#A3CE5B',\n          plane: yPlane,\n          bom: []\n      }\n\n      // do the cutting\n      let remover = intersect.geometry[0].cut(cube.geometry[0])\n\n      // merge the half-intersection with one of our inputs (either?)\n      let newShape1 = library[shape1].geometry[0].clone().cut(remover)\n\n      // compose assembly, be careful about ordering\n\n\n      return await Assembly([shape2, newShape1])//, cube]);\n// choose midpoint\n\n\n      \n\n      \n\n//      return Intersect(shape1, shape2)\n\n\n\n      //This makes a new copy of of the shape (to prevent garbage collection issues),\n      //and moves it in the X direction. Note that this will not work if the input is an assembly\n      /*let movedShape = importedShape.geometry[0].clone().translate([dist,0,0])\n      \n      //Console.log works for debugging to better see what is happening under the hood\n      console.log(\"Shape:\")\n      console.log(importedShape);\n      \n      //Shapes stored in the library have tags, a color, a plane, and a bill of materials like this. We don't modify them here\n      let shape1 = {\n        geometry: [movedShape],\n        tags: importedShape.tags,\n        color: importedShape.color,\n        plane: importedShape.plane,\n        bom: importedShape.bom\n      }\n      \n      //We could at this point return shape1 as a complete shape and it will be automatically written to the library for us\n      //return shape1\n      \n      //We can also create a new shape from scratch\n      let createdRectangle = replicad.drawRectangle(5,7)\n      //This is the plane we are going to put our new shape on\n      const newPlane = new Plane().pivot(0, 'Y');\n      //And we extrude the shape to make it 3D\n      let createdShape = createdRectangle.sketchOnPlane(newPlane).extrude(height)\n      \n      //For our new geometry we need to define the tags, color, plane, etc\n      let shape2 = {\n          geometry: [createdShape], \n          tags: [\"aTag\"],\n          color: '#A3CE5B',\n          plane: newPlane,\n          bom: []\n      }\n      \n      //Then we can return our created shape in just the same way\n      //return shape2\n      \n      //If we want to return both shapes at once, we can create an assembly with them\n      let anAssembly = {\n        geometry: [shape1, shape2], \n        tags: [\"aNewTag\"],\n        color: '#A3CF5B',\n        plane: newPlane,\n        bom: []\n      }\n      \n      //And we can return that in the same way\n      return anAssembly\n      \n      \n          /**\n          To Use the Code Atom, enter your inputs to the input list a.e Inputs:[shape, height]\n          If your input is connected to another atom with a replicad geometry you can access its geometry by looking up its ID in your library. a.e library[Input1].geometry[0] \n          Use any replicad available methods to modify your geometry. Learn more about all of the available methods at \n          https://replicad.xyz/docs/introapp/UserGuide.html \n          Return a replicad object that includes geometry, color, tags and plane. \n      \n      \n          Example Code Atom:\n      \n            Inputs:[shape, x];\n      \n            let finalShape = library[shape].geometry[0].clone.translate[x,0,0]\n      \n            return {geometry: finalShape, color: library[shape].color, plane: library[shape].plane, tags: library[shape].tags }\n      \n            - See more examples at _______ \n      \n      \n          */\n      "
         },
         {
             "atomType": "Extrude",
@@ -278,6 +278,52 @@
                 }
             ],
             "description": "Moves a shape laterally in X, Y, Z."
+        },
+        {
+            "atomType": "CutLayout",
+            "name": "Cut Layout",
+            "x": 0.8157552083333334,
+            "y": 0.4226190476190476,
+            "uniqueID": 1748635571453,
+            "ioValues": [
+                {
+                    "name": "geometry",
+                    "ioValue": 1748626545021
+                },
+                {
+                    "name": "Sheet Width",
+                    "ioValue": 1219
+                },
+                {
+                    "name": "Sheet Height",
+                    "ioValue": 2438
+                },
+                {
+                    "name": "Part Padding",
+                    "ioValue": 6
+                }
+            ],
+            "description": "Extracts all parts tagged for cutting and lays them out on a sheet to cut.",
+            "placements": [
+                [
+                    {
+                        "id": 0,
+                        "rotate": 90,
+                        "translate": {
+                            "x": 23.10000000000001,
+                            "y": 53.36162664910355
+                        }
+                    },
+                    {
+                        "id": 1,
+                        "rotate": 0,
+                        "translate": {
+                            "x": 29.52753834137841,
+                            "y": 53.1000000433566
+                        }
+                    }
+                ]
+            ]
         }
     ],
     "allConnectors": [
@@ -287,6 +333,13 @@
             "ap2Primary": false,
             "ap1ID": 1748626545021,
             "ap2ID": 1748626473635
+        },
+        {
+            "ap1Name": "geometry",
+            "ap2Name": "geometry",
+            "ap2Primary": false,
+            "ap1ID": 1748626545021,
+            "ap2ID": 1748635571453
         },
         {
             "ap1Name": "geometry",
