@@ -25,28 +25,28 @@
         {
             "atomType": "Code",
             "name": "Code",
-            "x": 0.5442708333333334,
-            "y": 0.26785714285714285,
+            "x": 0.6588541666666667,
+            "y": 0.16964285714285715,
             "uniqueID": 1748626545021,
             "ioValues": [
                 {
                     "name": "shape1",
-                    "ioValue": 1748627185979
+                    "ioValue": 1748630039112
                 },
                 {
                     "name": "shape2",
-                    "ioValue": 1748627247891
+                    "ioValue": 1748630076092
                 }
             ],
             "description": "Defines a Replicad code block.",
             "codeVersion": 1,
-            "code": " \n      //Inputs:[shape1, shape2]\n      //This defines the molecules inputs and creates variables with the same names which can be referenced in the code\n      \n      //Takes the address and gets the shape from the library\n\n      let intersect = await Intersect(shape1, shape2)\n      // get z bounds\n      console.log(\"foo\")\n      console.log(intersect)\n      let boundingBox = intersect.geometry[0].boundingBox\n      console.log(boundingBox)\n      return intersect;\n// choose midpoint\n\n\n      \n\n      \n\n//      return Intersect(shape1, shape2)\n\n\n\n      //This makes a new copy of of the shape (to prevent garbage collection issues),\n      //and moves it in the X direction. Note that this will not work if the input is an assembly\n      /*let movedShape = importedShape.geometry[0].clone().translate([dist,0,0])\n      \n      //Console.log works for debugging to better see what is happening under the hood\n      console.log(\"Shape:\")\n      console.log(importedShape);\n      \n      //Shapes stored in the library have tags, a color, a plane, and a bill of materials like this. We don't modify them here\n      let shape1 = {\n        geometry: [movedShape],\n        tags: importedShape.tags,\n        color: importedShape.color,\n        plane: importedShape.plane,\n        bom: importedShape.bom\n      }\n      \n      //We could at this point return shape1 as a complete shape and it will be automatically written to the library for us\n      //return shape1\n      \n      //We can also create a new shape from scratch\n      let createdRectangle = replicad.drawRectangle(5,7)\n      //This is the plane we are going to put our new shape on\n      const newPlane = new Plane().pivot(0, 'Y');\n      //And we extrude the shape to make it 3D\n      let createdShape = createdRectangle.sketchOnPlane(newPlane).extrude(height)\n      \n      //For our new geometry we need to define the tags, color, plane, etc\n      let shape2 = {\n          geometry: [createdShape], \n          tags: [\"aTag\"],\n          color: '#A3CE5B',\n          plane: newPlane,\n          bom: []\n      }\n      \n      //Then we can return our created shape in just the same way\n      //return shape2\n      \n      //If we want to return both shapes at once, we can create an assembly with them\n      let anAssembly = {\n        geometry: [shape1, shape2], \n        tags: [\"aNewTag\"],\n        color: '#A3CF5B',\n        plane: newPlane,\n        bom: []\n      }\n      \n      //And we can return that in the same way\n      return anAssembly\n      \n      \n          /**\n          To Use the Code Atom, enter your inputs to the input list a.e Inputs:[shape, height]\n          If your input is connected to another atom with a replicad geometry you can access its geometry by looking up its ID in your library. a.e library[Input1].geometry[0] \n          Use any replicad available methods to modify your geometry. Learn more about all of the available methods at \n          https://replicad.xyz/docs/introapp/UserGuide.html \n          Return a replicad object that includes geometry, color, tags and plane. \n      \n      \n          Example Code Atom:\n      \n            Inputs:[shape, x];\n      \n            let finalShape = library[shape].geometry[0].clone.translate[x,0,0]\n      \n            return {geometry: finalShape, color: library[shape].color, plane: library[shape].plane, tags: library[shape].tags }\n      \n            - See more examples at _______ \n      \n      \n          */\n      "
+            "code": " \n      //Inputs:[shape1, shape2]\n      //This defines the molecules inputs and creates variables with the same names which can be referenced in the code\n      \n      //Takes the address and gets the shape from the library\n\n      let intersect = await Intersect(shape1, shape2)\n      // get z bounds\n      console.log(\"foo\")\n      console.log(intersect)\n      let boundingBox = intersect.geometry[0].boundingBox\n      console.log(boundingBox.height)\n      console.log(boundingBox.bounds)\n\n      let cutHeight = boundingBox.bounds[0][2] + boundingBox.height / 2\n      console.log(cutHeight)\n      return intersect;\n// choose midpoint\n\n\n      \n\n      \n\n//      return Intersect(shape1, shape2)\n\n\n\n      //This makes a new copy of of the shape (to prevent garbage collection issues),\n      //and moves it in the X direction. Note that this will not work if the input is an assembly\n      /*let movedShape = importedShape.geometry[0].clone().translate([dist,0,0])\n      \n      //Console.log works for debugging to better see what is happening under the hood\n      console.log(\"Shape:\")\n      console.log(importedShape);\n      \n      //Shapes stored in the library have tags, a color, a plane, and a bill of materials like this. We don't modify them here\n      let shape1 = {\n        geometry: [movedShape],\n        tags: importedShape.tags,\n        color: importedShape.color,\n        plane: importedShape.plane,\n        bom: importedShape.bom\n      }\n      \n      //We could at this point return shape1 as a complete shape and it will be automatically written to the library for us\n      //return shape1\n      \n      //We can also create a new shape from scratch\n      let createdRectangle = replicad.drawRectangle(5,7)\n      //This is the plane we are going to put our new shape on\n      const newPlane = new Plane().pivot(0, 'Y');\n      //And we extrude the shape to make it 3D\n      let createdShape = createdRectangle.sketchOnPlane(newPlane).extrude(height)\n      \n      //For our new geometry we need to define the tags, color, plane, etc\n      let shape2 = {\n          geometry: [createdShape], \n          tags: [\"aTag\"],\n          color: '#A3CE5B',\n          plane: newPlane,\n          bom: []\n      }\n      \n      //Then we can return our created shape in just the same way\n      //return shape2\n      \n      //If we want to return both shapes at once, we can create an assembly with them\n      let anAssembly = {\n        geometry: [shape1, shape2], \n        tags: [\"aNewTag\"],\n        color: '#A3CF5B',\n        plane: newPlane,\n        bom: []\n      }\n      \n      //And we can return that in the same way\n      return anAssembly\n      \n      \n          /**\n          To Use the Code Atom, enter your inputs to the input list a.e Inputs:[shape, height]\n          If your input is connected to another atom with a replicad geometry you can access its geometry by looking up its ID in your library. a.e library[Input1].geometry[0] \n          Use any replicad available methods to modify your geometry. Learn more about all of the available methods at \n          https://replicad.xyz/docs/introapp/UserGuide.html \n          Return a replicad object that includes geometry, color, tags and plane. \n      \n      \n          Example Code Atom:\n      \n            Inputs:[shape, x];\n      \n            let finalShape = library[shape].geometry[0].clone.translate[x,0,0]\n      \n            return {geometry: finalShape, color: library[shape].color, plane: library[shape].plane, tags: library[shape].tags }\n      \n            - See more examples at _______ \n      \n      \n          */\n      "
         },
         {
             "atomType": "Extrude",
             "name": "Extrude",
-            "x": 0.3307291666666667,
-            "y": 0.4255952380952381,
+            "x": 0.33854166666666663,
+            "y": 0.40773809523809523,
             "uniqueID": 1748627185979,
             "ioValues": [
                 {
@@ -81,8 +81,8 @@
         {
             "atomType": "Rectangle",
             "name": "Rectangle",
-            "x": 0.21614583333333334,
-            "y": 0.5892857142857143,
+            "x": 0.09700520833333334,
+            "y": 0.5327380952380952,
             "uniqueID": 1748627212365,
             "ioValues": [
                 {
@@ -226,6 +226,58 @@
             "description": "Extracts geometry containing the specified tag.",
             "tag": "ext",
             "tagIndex": 0
+        },
+        {
+            "atomType": "Move",
+            "name": "Move",
+            "x": 0.52734375,
+            "y": 0.17261904761904762,
+            "uniqueID": 1748630039112,
+            "ioValues": [
+                {
+                    "name": "geometry",
+                    "ioValue": 1748627185979
+                },
+                {
+                    "name": "xDist",
+                    "ioValue": 0
+                },
+                {
+                    "name": "yDist",
+                    "ioValue": 0
+                },
+                {
+                    "name": "zDist",
+                    "ioValue": 50
+                }
+            ],
+            "description": "Moves a shape laterally in X, Y, Z."
+        },
+        {
+            "atomType": "Move",
+            "name": "Move",
+            "x": 0.5553385416666666,
+            "y": 0.37797619047619047,
+            "uniqueID": 1748630076092,
+            "ioValues": [
+                {
+                    "name": "geometry",
+                    "ioValue": 1748627247891
+                },
+                {
+                    "name": "xDist",
+                    "ioValue": 0
+                },
+                {
+                    "name": "yDist",
+                    "ioValue": 0
+                },
+                {
+                    "name": "zDist",
+                    "ioValue": 50
+                }
+            ],
+            "description": "Moves a shape laterally in X, Y, Z."
         }
     ],
     "allConnectors": [
@@ -235,13 +287,6 @@
             "ap2Primary": false,
             "ap1ID": 1748626545021,
             "ap2ID": 1748626473635
-        },
-        {
-            "ap1Name": "geometry",
-            "ap2Name": "shape1",
-            "ap2Primary": false,
-            "ap1ID": 1748627185979,
-            "ap2ID": 1748626545021
         },
         {
             "ap1Name": "geometry",
@@ -261,6 +306,13 @@
             "ap1Name": "geometry",
             "ap2Name": "geometry",
             "ap2Primary": true,
+            "ap1ID": 1748627185979,
+            "ap2ID": 1748630039112
+        },
+        {
+            "ap1Name": "geometry",
+            "ap2Name": "geometry",
+            "ap2Primary": true,
             "ap1ID": 1748627200374,
             "ap2ID": 1748627247891
         },
@@ -270,13 +322,6 @@
             "ap2Primary": true,
             "ap1ID": 1748627212365,
             "ap2ID": 1748627200374
-        },
-        {
-            "ap1Name": "geometry",
-            "ap2Name": "shape2",
-            "ap2Primary": false,
-            "ap1ID": 1748627247891,
-            "ap2ID": 1748626545021
         },
         {
             "ap1Name": "geometry",
@@ -291,6 +336,13 @@
             "ap2Primary": false,
             "ap1ID": 1748627247891,
             "ap2ID": 1748629051071
+        },
+        {
+            "ap1Name": "geometry",
+            "ap2Name": "geometry",
+            "ap2Primary": true,
+            "ap1ID": 1748627247891,
+            "ap2ID": 1748630076092
         },
         {
             "ap1Name": "geometry",
@@ -326,6 +378,20 @@
             "ap2Primary": false,
             "ap1ID": 1748629178015,
             "ap2ID": 1748629027676
+        },
+        {
+            "ap1Name": "geometry",
+            "ap2Name": "shape1",
+            "ap2Primary": false,
+            "ap1ID": 1748630039112,
+            "ap2ID": 1748626545021
+        },
+        {
+            "ap1Name": "geometry",
+            "ap2Name": "shape2",
+            "ap2Primary": false,
+            "ap1ID": 1748630076092,
+            "ap2ID": 1748626545021
         }
     ],
     "unitsKey": "MM",
