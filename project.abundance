@@ -14,12 +14,7 @@
             "x": 0.98,
             "y": 0.5,
             "uniqueID": 1748626473635,
-            "ioValues": [
-                {
-                    "name": "number or geometry",
-                    "ioValue": 1748626545021
-                }
-            ],
+            "ioValues": [],
             "description": "Connect geometry here to make it available in the next level up. "
         },
         {
@@ -31,11 +26,11 @@
             "ioValues": [
                 {
                     "name": "shape1",
-                    "ioValue": 1748630076092
+                    "ioValue": 10
                 },
                 {
                     "name": "shape2",
-                    "ioValue": 1748639316613
+                    "ioValue": 10
                 }
             ],
             "description": "Defines a Replicad code block.",
@@ -265,12 +260,7 @@
                     "x": 0.98,
                     "y": 0.5,
                     "uniqueID": 1748639317402,
-                    "ioValues": [
-                        {
-                            "name": "number or geometry",
-                            "ioValue": 1748639317034
-                        }
-                    ],
+                    "ioValues": [],
                     "description": "Connect geometry here to make it available in the next level up. "
                 },
                 {
@@ -546,20 +536,6 @@
             "ap2Primary": true,
             "ap1ID": 1748627659483,
             "ap2ID": 1748627185979
-        },
-        {
-            "ap1Name": "geometry",
-            "ap2Name": "shape1",
-            "ap2Primary": false,
-            "ap1ID": 1748630076092,
-            "ap2ID": 1748626545021
-        },
-        {
-            "ap1Name": "Geometry",
-            "ap2Name": "shape2",
-            "ap2Primary": false,
-            "ap1ID": 1748639316613,
-            "ap2ID": 1748626545021
         },
         {
             "ap1Name": "geometry",
