@@ -31,11 +31,11 @@
             "ioValues": [
                 {
                     "name": "shape1",
-                    "ioValue": 1748639316613
+                    "ioValue": 1748630076092
                 },
                 {
                     "name": "shape2",
-                    "ioValue": 1748630076092
+                    "ioValue": 1748639316613
                 }
             ],
             "description": "Defines a Replicad code block.",
@@ -549,14 +549,14 @@
         },
         {
             "ap1Name": "geometry",
-            "ap2Name": "shape2",
+            "ap2Name": "shape1",
             "ap2Primary": false,
             "ap1ID": 1748630076092,
             "ap2ID": 1748626545021
         },
         {
             "ap1Name": "Geometry",
-            "ap2Name": "shape1",
+            "ap2Name": "shape2",
             "ap2Primary": false,
             "ap1ID": 1748639316613,
             "ap2ID": 1748626545021
