@@ -14,7 +14,12 @@
             "x": 0.98,
             "y": 0.5,
             "uniqueID": 1748626473635,
-            "ioValues": [],
+            "ioValues": [
+                {
+                    "name": "number or geometry",
+                    "ioValue": 1748626545021
+                }
+            ],
             "description": "Connect geometry here to make it available in the next level up. "
         },
         {
@@ -26,7 +31,7 @@
             "ioValues": [
                 {
                     "name": "shape1",
-                    "ioValue": 1748627200374
+                    "ioValue": 1749240575082
                 },
                 {
                     "name": "shape2",
@@ -76,8 +81,8 @@
         {
             "atomType": "Rectangle",
             "name": "Rectangle",
-            "x": 0.09700520833333334,
-            "y": 0.5327380952380952,
+            "x": 0.12890625,
+            "y": 0.5535714285714286,
             "uniqueID": 1748627212365,
             "ioValues": [
                 {
@@ -448,15 +453,29 @@
             "uniqueID": 1749234738090,
             "ioValues": [
                 {
-                    "name": "Shape 1",
-                    "ioValue": 1748627212365
-                },
-                {
                     "name": "Shape 2",
                     "ioValue": 1749234707974
                 }
             ],
             "description": "Pick between assembly and fusion to join input geometries. Assembly takes multiple shapes together into one, shapes higher in the inputs list will cut into shapes lower on the input list where they overlap. Fusion takes all shapes or sketches and fuses them permanently into a single shape"
+        },
+        {
+            "atomType": "Extrude",
+            "name": "Extrude",
+            "x": 0.25260416666666663,
+            "y": 0.5416666666666666,
+            "uniqueID": 1749240575082,
+            "ioValues": [
+                {
+                    "name": "geometry",
+                    "ioValue": 1748627212365
+                },
+                {
+                    "name": "height",
+                    "ioValue": 20
+                }
+            ],
+            "description": "Extrudes a 2D shape. Input can be negitive. "
         }
     ],
     "allConnectors": [
@@ -483,17 +502,10 @@
         },
         {
             "ap1Name": "geometry",
-            "ap2Name": "shape1",
-            "ap2Primary": false,
-            "ap1ID": 1748627200374,
-            "ap2ID": 1748626545021
-        },
-        {
-            "ap1Name": "geometry",
-            "ap2Name": "Shape 1",
-            "ap2Primary": false,
+            "ap2Name": "geometry",
+            "ap2Primary": true,
             "ap1ID": 1748627212365,
-            "ap2ID": 1749234738090
+            "ap2ID": 1749240575082
         },
         {
             "ap1Name": "geometry",
@@ -536,6 +548,13 @@
             "ap2Primary": true,
             "ap1ID": 1749234738090,
             "ap2ID": 1748627247891
+        },
+        {
+            "ap1Name": "geometry",
+            "ap2Name": "shape1",
+            "ap2Primary": false,
+            "ap1ID": 1749240575082,
+            "ap2ID": 1748626545021
         }
     ],
     "unitsKey": "MM",
