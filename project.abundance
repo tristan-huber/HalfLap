@@ -25,13 +25,13 @@
         {
             "atomType": "Code",
             "name": "Code",
-            "x": 0.6588541666666667,
-            "y": 0.16964285714285715,
+            "x": 0.66796875,
+            "y": 0.1755952380952381,
             "uniqueID": 1748626545021,
             "ioValues": [
                 {
                     "name": "shape1",
-                    "ioValue": 1749240575082
+                    "ioValue": 1749240667077
                 },
                 {
                     "name": "shape2",
@@ -476,6 +476,32 @@
                 }
             ],
             "description": "Extrudes a 2D shape. Input can be negitive. "
+        },
+        {
+            "atomType": "Rotate",
+            "name": "Rotate",
+            "x": 0.4446614583333333,
+            "y": 0.21726190476190477,
+            "uniqueID": 1749240667077,
+            "ioValues": [
+                {
+                    "name": "geometry",
+                    "ioValue": 1749240575082
+                },
+                {
+                    "name": "x-axis degrees",
+                    "ioValue": 0
+                },
+                {
+                    "name": "y-axis degrees",
+                    "ioValue": 0
+                },
+                {
+                    "name": "z-axis degrees",
+                    "ioValue": 90
+                }
+            ],
+            "description": "Rotates the input geometry around the X, Y, or Z axis. Inputs are degrees."
         }
     ],
     "allConnectors": [
@@ -551,9 +577,16 @@
         },
         {
             "ap1Name": "geometry",
+            "ap2Name": "geometry",
+            "ap2Primary": true,
+            "ap1ID": 1749240575082,
+            "ap2ID": 1749240667077
+        },
+        {
+            "ap1Name": "geometry",
             "ap2Name": "shape1",
             "ap2Primary": false,
-            "ap1ID": 1749240575082,
+            "ap1ID": 1749240667077,
             "ap2ID": 1748626545021
         }
     ],
