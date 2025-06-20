@@ -31,7 +31,7 @@
             "ioValues": [
                 {
                     "name": "shape1",
-                    "ioValue": 1748630076092
+                    "ioValue": 1748627200374
                 },
                 {
                     "name": "shape2",
@@ -532,6 +532,13 @@
         },
         {
             "ap1Name": "geometry",
+            "ap2Name": "shape1",
+            "ap2Primary": false,
+            "ap1ID": 1748627200374,
+            "ap2ID": 1748626545021
+        },
+        {
+            "ap1Name": "geometry",
             "ap2Name": "geometry",
             "ap2Primary": true,
             "ap1ID": 1748627212365,
@@ -557,13 +564,6 @@
             "ap2Primary": true,
             "ap1ID": 1748627659483,
             "ap2ID": 1748627185979
-        },
-        {
-            "ap1Name": "geometry",
-            "ap2Name": "shape1",
-            "ap2Primary": false,
-            "ap1ID": 1748630076092,
-            "ap2ID": 1748626545021
         },
         {
             "ap1Name": "Geometry",
