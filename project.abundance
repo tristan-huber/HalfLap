@@ -35,11 +35,11 @@
             "ioValues": [
                 {
                     "name": "shape1",
-                    "ioValue": 10
+                    "ioValue": "f0cedb3f-e7c8-49a2-9fad-38400d5161f5"
                 },
                 {
                     "name": "shape2",
-                    "ioValue": 10
+                    "ioValue": "60fe3a1f-4626-4db2-b7e6-6d744f00d5b3"
                 }
             ],
             "description": "Defines a Replicad code block.",
@@ -174,25 +174,18 @@
             "ap2ID": 1748626473635
         },
         {
-            "ap1Name": "number or geometry",
-            "ap2Name": "shape1",
-            "ap2Primary": false,
-            "ap1ID": "f3673692-f0af-4e89-97da-98c68b026ac8",
-            "ap2ID": 1748626545021
-        },
-        {
-            "ap1Name": "number or geometry",
-            "ap2Name": "shape2",
-            "ap2Primary": false,
-            "ap1ID": "1fa773ee-39a6-4a43-bc9f-4a9d85bce173",
-            "ap2ID": 1748626545021
-        },
-        {
             "ap1Name": "geometry",
             "ap2Name": "geometry",
             "ap2Primary": true,
             "ap1ID": "63ce20ab-4e6b-42e0-bd2a-d72a61d46e6e",
             "ap2ID": "f0cedb3f-e7c8-49a2-9fad-38400d5161f5"
+        },
+        {
+            "ap1Name": "geometry",
+            "ap2Name": "shape1",
+            "ap2Primary": false,
+            "ap1ID": "f0cedb3f-e7c8-49a2-9fad-38400d5161f5",
+            "ap2ID": 1748626545021
         },
         {
             "ap1Name": "geometry",
@@ -207,6 +200,13 @@
             "ap2Primary": true,
             "ap1ID": "ed04f7fa-7e38-402e-b676-b5b0225a7242",
             "ap2ID": "60fe3a1f-4626-4db2-b7e6-6d744f00d5b3"
+        },
+        {
+            "ap1Name": "geometry",
+            "ap2Name": "shape2",
+            "ap2Primary": false,
+            "ap1ID": "60fe3a1f-4626-4db2-b7e6-6d744f00d5b3",
+            "ap2ID": 1748626545021
         }
     ],
     "unitsKey": "MM",
