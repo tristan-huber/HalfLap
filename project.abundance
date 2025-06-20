@@ -65,6 +65,104 @@
             "ioValues": [],
             "description": "Adds an input to the parent molecule. If the parent molecule is the top level of the project then the input will be available when the project is shared or imported into another project. Name is editable",
             "type": "geometry"
+        },
+        {
+            "atomType": "Rectangle",
+            "name": "Rectangle",
+            "x": 0.34049479166666663,
+            "y": 0.15773809523809523,
+            "uniqueID": "63ce20ab-4e6b-42e0-bd2a-d72a61d46e6e",
+            "ioValues": [
+                {
+                    "name": "x length",
+                    "ioValue": 10
+                },
+                {
+                    "name": "y length",
+                    "ioValue": 50
+                }
+            ],
+            "description": "Creates a new rectangle."
+        },
+        {
+            "atomType": "Extrude",
+            "name": "Extrude",
+            "x": 0.44921875,
+            "y": 0.11309523809523808,
+            "uniqueID": "f0cedb3f-e7c8-49a2-9fad-38400d5161f5",
+            "ioValues": [
+                {
+                    "name": "geometry",
+                    "ioValue": "63ce20ab-4e6b-42e0-bd2a-d72a61d46e6e"
+                },
+                {
+                    "name": "height",
+                    "ioValue": 10
+                }
+            ],
+            "description": "Extrudes a 2D shape. Input can be negitive. "
+        },
+        {
+            "atomType": "Rectangle",
+            "name": "Rectangle",
+            "x": 0.30013020833333337,
+            "y": 0.7202380952380952,
+            "uniqueID": "21a6819e-9f3d-4e3c-8d80-60231ba57692",
+            "ioValues": [
+                {
+                    "name": "x length",
+                    "ioValue": 10
+                },
+                {
+                    "name": "y length",
+                    "ioValue": 10
+                }
+            ],
+            "description": "Creates a new rectangle."
+        },
+        {
+            "atomType": "Extrude",
+            "name": "Extrude",
+            "x": 0.4036458333333333,
+            "y": 0.7053571428571429,
+            "uniqueID": "ed04f7fa-7e38-402e-b676-b5b0225a7242",
+            "ioValues": [
+                {
+                    "name": "geometry",
+                    "ioValue": "21a6819e-9f3d-4e3c-8d80-60231ba57692"
+                },
+                {
+                    "name": "height",
+                    "ioValue": 50
+                }
+            ],
+            "description": "Extrudes a 2D shape. Input can be negitive. "
+        },
+        {
+            "atomType": "Move",
+            "name": "Move",
+            "x": 0.525390625,
+            "y": 0.6220238095238095,
+            "uniqueID": "60fe3a1f-4626-4db2-b7e6-6d744f00d5b3",
+            "ioValues": [
+                {
+                    "name": "geometry",
+                    "ioValue": "ed04f7fa-7e38-402e-b676-b5b0225a7242"
+                },
+                {
+                    "name": "xDist",
+                    "ioValue": 0
+                },
+                {
+                    "name": "yDist",
+                    "ioValue": 0
+                },
+                {
+                    "name": "zDist",
+                    "ioValue": -25
+                }
+            ],
+            "description": "Moves a shape laterally in X, Y, Z."
         }
     ],
     "allConnectors": [
@@ -88,6 +186,27 @@
             "ap2Primary": false,
             "ap1ID": "1fa773ee-39a6-4a43-bc9f-4a9d85bce173",
             "ap2ID": 1748626545021
+        },
+        {
+            "ap1Name": "geometry",
+            "ap2Name": "geometry",
+            "ap2Primary": true,
+            "ap1ID": "63ce20ab-4e6b-42e0-bd2a-d72a61d46e6e",
+            "ap2ID": "f0cedb3f-e7c8-49a2-9fad-38400d5161f5"
+        },
+        {
+            "ap1Name": "geometry",
+            "ap2Name": "geometry",
+            "ap2Primary": true,
+            "ap1ID": "21a6819e-9f3d-4e3c-8d80-60231ba57692",
+            "ap2ID": "ed04f7fa-7e38-402e-b676-b5b0225a7242"
+        },
+        {
+            "ap1Name": "geometry",
+            "ap2Name": "geometry",
+            "ap2Primary": true,
+            "ap1ID": "ed04f7fa-7e38-402e-b676-b5b0225a7242",
+            "ap2ID": "60fe3a1f-4626-4db2-b7e6-6d744f00d5b3"
         }
     ],
     "unitsKey": "MM",
