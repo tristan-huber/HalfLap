@@ -177,7 +177,7 @@
                 },
                 {
                     "name": "x-axis degrees",
-                    "ioValue": 0
+                    "ioValue": 20
                 },
                 {
                     "name": "y-axis degrees",
@@ -355,6 +355,60 @@
             "ioValues": [],
             "description": "Adds an input to the parent molecule. If the parent molecule is the top level of the project then the input will be available when the project is shared or imported into another project. Name is editable",
             "type": "geometry"
+        },
+        {
+            "atomType": "CutLayout",
+            "name": "Cut Layout",
+            "x": 0.7565104166666666,
+            "y": 0.5297619047619048,
+            "uniqueID": "46515f45-931a-4452-920a-33b3bfb28955",
+            "ioValues": [
+                {
+                    "name": "geometry",
+                    "ioValue": "0add63a4-3bc6-4e0f-b6d5-af9c44009ba4"
+                },
+                {
+                    "name": "Sheet Width",
+                    "ioValue": 1219
+                },
+                {
+                    "name": "Sheet Height",
+                    "ioValue": 2438
+                },
+                {
+                    "name": "Part Padding",
+                    "ioValue": 6
+                }
+            ],
+            "description": "Extracts all parts tagged for cutting and lays them out on a sheet to cut.",
+            "placements": [
+                [
+                    {
+                        "id": 1,
+                        "rotate": 300,
+                        "translate": {
+                            "x": 27.916049405944435,
+                            "y": 23.727104315558762
+                        }
+                    },
+                    {
+                        "id": 2,
+                        "rotate": 300,
+                        "translate": {
+                            "x": 27.9160494103428,
+                            "y": 48.20675551555876
+                        }
+                    },
+                    {
+                        "id": 0,
+                        "rotate": 90,
+                        "translate": {
+                            "x": 47.93021519473496,
+                            "y": 71.84124697498925
+                        }
+                    }
+                ]
+            ]
         }
     ],
     "allConnectors": [
@@ -399,6 +453,13 @@
             "ap2Primary": true,
             "ap1ID": "60fe3a1f-4626-4db2-b7e6-6d744f00d5b3",
             "ap2ID": "8b341454-d8b1-418c-baa9-475b3529940a"
+        },
+        {
+            "ap1Name": "geometry",
+            "ap2Name": "geometry",
+            "ap2Primary": false,
+            "ap1ID": "0add63a4-3bc6-4e0f-b6d5-af9c44009ba4",
+            "ap2ID": "46515f45-931a-4452-920a-33b3bfb28955"
         },
         {
             "ap1Name": "geometry",
