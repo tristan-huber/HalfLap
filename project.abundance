@@ -121,8 +121,8 @@
         {
             "atomType": "Move",
             "name": "Move",
-            "x": 0.39713541666666663,
-            "y": 0.8154761904761905,
+            "x": 0.4153645833333333,
+            "y": 0.8285714285714286,
             "uniqueID": "60fe3a1f-4626-4db2-b7e6-6d744f00d5b3",
             "ioValues": [
                 {
@@ -139,7 +139,7 @@
                 },
                 {
                     "name": "zDist",
-                    "ioValue": -25
+                    "ioValue": "ed04f7fa-7e38-402e-b676-b5b0225a7242"
                 }
             ],
             "description": "Moves a shape laterally in X, Y, Z."
@@ -444,6 +444,13 @@
             "ap1Name": "geometry",
             "ap2Name": "geometry",
             "ap2Primary": true,
+            "ap1ID": "ed04f7fa-7e38-402e-b676-b5b0225a7242",
+            "ap2ID": "60fe3a1f-4626-4db2-b7e6-6d744f00d5b3"
+        },
+        {
+            "ap1Name": "geometry",
+            "ap2Name": "zDist",
+            "ap2Primary": false,
             "ap1ID": "ed04f7fa-7e38-402e-b676-b5b0225a7242",
             "ap2ID": "60fe3a1f-4626-4db2-b7e6-6d744f00d5b3"
         },
