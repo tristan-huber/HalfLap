@@ -2,7 +2,13 @@
 
 # HalfLap
 
-![](/project.svg)
+![](/project.png)
+
+## Inputs
+
+- **Assembly1** (geometry)
+- **Assembly2** (geometry)
+
 
 
 
